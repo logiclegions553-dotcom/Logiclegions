@@ -83,7 +83,45 @@ function App() {
         <div className="mainContent">
           <h1>Main Content</h1>
           <p>Welcome! Here is the main content for {selectedClass} - {selectedSubject}.</p>
-          {/* Add your main content here */}
+         <div className="sketchfab-embed-wrapper">
+  <iframe
+    title="[Animation] Human Heart"
+    frameBorder="0"
+    allowFullScreen
+    mozAllowFullScreen="true"
+    webkitAllowFullScreen="true"
+    allow="autoplay; fullscreen; xr-spatial-tracking"
+    src="https://sketchfab.com/models/775d6629622740de8a5ed61a959c7506/embed"
+  />
+  <p style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}>
+    <a
+      href="https://sketchfab.com/3d-models/animation-human-heart-775d6629622740de8a5ed61a959c7506?utm_medium=embed&utm_campaign=share-popup&utm_content=775d6629622740de8a5ed61a959c7506"
+      target="_blank"
+      rel="nofollow"
+      style={{ fontWeight: "bold", color: "#1CAAD9" }}
+    >
+      [Animation] Human Heart
+    </a>{" "}
+    by{" "}
+    <a
+      href="https://sketchfab.com/michel.paschalis?utm_medium=embed&utm_campaign=share-popup&utm_content=775d6629622740de8a5ed61a959c7506"
+      target="_blank"
+      rel="nofollow"
+      style={{ fontWeight: "bold", color: "#1CAAD9" }}
+    >
+      Michel Paschalis
+    </a>{" "}
+    on{" "}
+    <a
+      href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=775d6629622740de8a5ed61a959c7506"
+      target="_blank"
+      rel="nofollow"
+      style={{ fontWeight: "bold", color: "#1CAAD9" }}
+    >
+      Sketchfab
+    </a>
+  </p>
+</div>
         </div>
       )}
     </div>
