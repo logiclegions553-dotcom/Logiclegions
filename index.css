@@ -1,4 +1,4 @@
-/* Center the root div both vertically and horizontally */
+
 #root {
 		min-height: 100vh;
 		width: 100%;
@@ -6,7 +6,7 @@
 		align-items: center;
 		justify-content: center;
 }
-/* Vite default styles restored */
+
 :root {
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
