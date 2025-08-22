@@ -13,16 +13,19 @@ import { useState, useEffect } from 'react';
     const [selectedChapter, setSelectedChapter] = useState(null);
     const [selectedTopic, setSelectedTopic] = useState(null);
     const [uploadedImage, setUploadedImage] = useState(null);
-    const subtopics = {
+    const [subtopics, setSubtopics] = useState({
       Science: {
         'Introduction to Physics': ['Motion', 'Force', 'Energy'],
-        'Basics of Chemistry': ['Atoms', 'Molecules', 'Reactions']
+        Biology: {
+          'Human Heart': ['Structure', 'Function', 'Diseases'],
+          'Respiratory System': ['Organs', 'Process', 'Diseases']
+        }
       },
       Maths: {
         'Algebra Fundamentals': ['Equations', 'Expressions', 'Functions'],
         'Geometry Basics': ['Shapes', 'Angles', 'Theorems']
       }
-    };
+    });
     const topicContents = {
       Science: {
         'Introduction to Physics': {
@@ -82,12 +85,102 @@ import { useState, useEffect } from 'react';
             ]
           }
         },
-        'Basics of Chemistry': {
-          Atoms: 'Atoms are the basic units of matter.',
-          Molecules: 'Molecules are groups of atoms bonded together.',
-          Reactions: 'Chemical reactions involve the transformation of substances.'
-        }
-      },
+        Biology: {
+          'Human Heart': {
+            Structure: {
+              title: 'Structure of the Heart',
+              points: [
+                'What is the Heart?',
+                'The heart is a muscular organ that pumps blood throughout the body via the circulatory system. It supplies oxygen and nutrients and removes carbon dioxide and waste products.',
+                'Location and Size',
+                'Located in the thoracic cavity, between the lungs (slightly to the left of the midline).',
+                'About the size of a fist and weighs around 250–350 grams.',
+                'Main Characteristics',
+                'Type of muscle: Cardiac muscle (involuntary and striated).',
+                'Protective covering: Pericardium (a double-walled sac filled with pericardial fluid).',
+                'The heart is a muscular organ about the size of your fist, located just behind and slightly left of the breastbone.',
+                'It consists of four chambers: two atria (upper chambers) and two ventricles (lower chambers).',
+                'The chambers are separated by valves that prevent the backflow of blood.'
+              ],
+              terms: [
+                { name: 'Aorta', desc: 'The largest artery in the body, carrying blood away from the heart to the rest of the body.' },
+                { name: 'Atrium', desc: 'One of the two upper chambers of the heart that receive blood.' },
+                { name: 'Ventricle', desc: 'One of the two lower chambers of the heart that pump blood out of the heart.' },
+                { name: 'Valve', desc: 'A structure that opens and closes to control the flow of blood.' }
+              ]
+            },
+            Function: {
+              title: 'Function of the Heart',
+              points: [
+                'The heart pumps blood through the circulatory system, supplying oxygen and nutrients to the tissues and removing carbon dioxide and wastes.',
+                'The right side of the heart receives deoxygenated blood from the body and pumps it to the lungs for oxygenation.',
+                'The left side of the heart receives oxygenated blood from the lungs and pumps it to the rest of the body.'
+              ],
+              terms: [
+                { name: 'Circulation', desc: 'The movement of blood through the heart and blood vessels.' },
+                { name: 'Oxygenation', desc: 'The process of adding oxygen to the blood.' },
+                { name: 'Deoxygenated', desc: 'Blood that is low in oxygen and high in carbon dioxide.' },
+                { name: 'Oxygenated', desc: 'Blood that is rich in oxygen and low in carbon dioxide.' }
+              ]
+            },
+            Diseases: {
+              title: 'Diseases of the Heart',
+              points: [
+                'Common heart diseases include coronary artery disease, heart attack, and heart failure.',
+                'Risk factors for heart disease include high blood pressure, high cholesterol, smoking, and diabetes.',
+                'Maintaining a healthy lifestyle can reduce the risk of heart disease.'
+              ],
+              terms: [
+                { name: 'Coronary Artery Disease', desc: 'A condition caused by the buildup of plaque in the coronary arteries, reducing blood flow to the heart muscle.' },
+                { name: 'Heart Attack', desc: 'A medical emergency where the blood flow to a part of the heart is blocked, causing damage to the heart muscle.' },
+                { name: 'Heart Failure', desc: 'A condition in which the heart cannot pump enough blood to meet the body\'s needs.' }
+              ]
+            }
+          },
+          'Respiratory System': {
+            Organs: {
+              title: 'Organs of the Respiratory System',
+              points: [
+                'The respiratory system includes the nose, throat, larynx, trachea, bronchi, and lungs.',
+                'Air enters the body through the nose or mouth and travels down the trachea, which divides into two bronchi, one for each lung.',
+                'The lungs are the main organs of respiration, where gas exchange occurs.'
+              ],
+              terms: [
+                { name: 'Nose', desc: 'The external part of the respiratory system that filters, warms, and moistens air.' },
+                { name: 'Trachea', desc: 'The windpipe; a tube that connects the larynx to the bronchi.' },
+                { name: 'Bronchi', desc: 'The two main branches of the trachea that lead to the lungs.' },
+                { name: 'Lungs', desc: 'The pair of organs in the chest that are responsible for breathing.' }
+              ]
+            },
+            Process: {
+              title: 'Process of Respiration',
+              points: [
+                'Respiration is the process of exchanging oxygen and carbon dioxide between the body and the environment.',
+                'Inhalation brings oxygen-rich air into the lungs, and exhalation removes carbon dioxide-rich air.',
+                'The diaphragm and intercostal muscles play a key role in breathing by contracting and relaxing to change the volume of the thoracic cavity.'
+              ],
+              terms: [
+                { name: 'Inhalation', desc: 'The act of taking air into the lungs.' },
+                { name: 'Exhalation', desc: 'The act of expelling air from the lungs.' },
+                { name: 'Diaphragm', desc: 'The muscle that separates the chest cavity from the abdominal cavity and is involved in breathing.' },
+                { name: 'Intercostal Muscles', desc: 'The muscles between the ribs that assist in breathing.' }
+              ]
+            },
+            Diseases: {
+              title: 'Diseases of the Respiratory System',
+              points: [
+                'Common respiratory diseases include asthma, chronic obstructive pulmonary disease (COPD), and pneumonia.',
+                'Risk factors for respiratory diseases include smoking, air pollution, and respiratory infections.',
+                'Preventive measures include avoiding smoking, reducing exposure to pollutants, and getting vaccinated against respiratory infections.'
+              ],
+              terms: [
+                { name: 'Asthma', desc: 'A chronic disease that causes inflammation and narrowing of the airways, leading to difficulty in breathing.' },
+                { name: 'COPD', desc: 'A group of lung diseases that block airflow and make it difficult to breathe.' },
+                { name: 'Pneumonia', desc: 'An infection that inflames the air sacs in one or both lungs, which may fill with fluid.' }
+              ]
+            }
+          }
+        },
       Maths: {
         'Algebra Fundamentals': {
           Equations: 'Equations are mathematical statements that assert the equality of two expressions.',
@@ -100,7 +193,8 @@ import { useState, useEffect } from 'react';
           Theorems: 'Theorems are statements that can be proven based on previously established statements.'
         }
       }
-    };
+    }
+  }
 
     function handleSearch(e) {
       e.preventDefault();
@@ -171,6 +265,7 @@ import { useState, useEffect } from 'react';
                 <div className="subjectsList" style={{ width: '100%', marginBottom: 16, display: selectedSubject ? 'none' : 'block' }}>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '100%' }}>
                     <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Science')}>Science</li>
+                    <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Biology')}>Biology</li>
                     <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Maths')}>Maths</li>
                   </ul>
                 </div>
@@ -178,7 +273,12 @@ import { useState, useEffect } from 'react';
                   <div style={{ marginTop: 24 , marginLeft: 60, right: 50 }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                       <div>
-                        <button onClick={() => handleChapterClick('Introduction to Physics')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Introduction to Physics' ? 'bold' : 'normal' }}>1. Introduction to Physics</button>
+                        <button
+                          onClick={() => handleChapterClick('Introduction to Physics')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Introduction to Physics' ? 'bold' : 'normal' }}
+                        >
+                          1. Introduction to Physics
+                        </button>
                         {selectedChapter === 'Introduction to Physics' && (
                           <div style={{ marginTop: 8 }}>
                             <h5>Subtopics</h5>
@@ -191,7 +291,12 @@ import { useState, useEffect } from 'react';
                         )}
                       </div>
                       <div>
-                        <button onClick={() => handleChapterClick('Basics of Chemistry')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Basics of Chemistry' ? 'bold' : 'normal' }}>2. Basics of Chemistry</button>
+                        <button
+                          onClick={() => handleChapterClick('Basics of Chemistry')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Basics of Chemistry' ? 'bold' : 'normal' }}
+                        >
+                          2. Basics of Chemistry
+                        </button>
                         {selectedChapter === 'Basics of Chemistry' && (
                           <div style={{ marginTop: 8 }}>
                             <h5>Subtopics</h5>
@@ -206,11 +311,74 @@ import { useState, useEffect } from 'react';
                     </div>
                   </div>
                 )}
+                {selectedSubject === 'Biology' && (
+                  <div style={{ marginTop: 24, marginLeft: 60, right: 50 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                      <div>
+                        <button
+                          onClick={() => handleChapterClick('Human Heart')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Human Heart' ? 'bold' : 'normal' }}
+                        >
+                          1. Human Heart
+                        </button>
+                        {selectedChapter === 'Human Heart' && (
+                          <div style={{ marginTop: 8 }}>
+                            <h5>Subtopics</h5>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                              {subtopics['Science']['Biology']['Human Heart'].map((topic, idx) => (
+                                <button
+                                  key={topic}
+                                  onClick={() => {
+                                    setSelectedSubject('Biology');
+                                    setSelectedChapter('Human Heart');
+                                    setSelectedTopic(topic);
+                                  }}
+                                  style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}
+                                >{`${idx + 1}. ${topic}`}</button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <button
+                          onClick={() => handleChapterClick('Respiratory System')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Respiratory System' ? 'bold' : 'normal' }}
+                        >
+                          2. Respiratory System
+                        </button>
+                        {selectedChapter === 'Respiratory System' && (
+                          <div style={{ marginTop: 8 }}>
+                            <h5>Subtopics</h5>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                              {subtopics['Science']['Biology']['Respiratory System'].map((topic, idx) => (
+                                <button
+                                  key={topic}
+                                  onClick={() => {
+                                    setSelectedSubject('Biology');
+                                    setSelectedChapter('Respiratory System');
+                                    setSelectedTopic(topic);
+                                  }}
+                                  style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}
+                                >{`${idx + 1}. ${topic}`}</button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
                 {selectedSubject === 'Maths' && (  
                   <div style={{ marginTop: 24 }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                       <div>
-                        <button onClick={() => handleChapterClick('Algebra Fundamentals')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Algebra Fundamentals' ? 'bold' : 'normal' }}>1. Algebra Fundamentals</button>
+                        <button
+                          onClick={() => handleChapterClick('Algebra Fundamentals')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Algebra Fundamentals' ? 'bold' : 'normal' }}
+                        >
+                          1. Algebra Fundamentals
+                        </button>
                         {selectedChapter === 'Algebra Fundamentals' && (
                           <div style={{ marginTop: 8 }}>
                             <h5>Subtopics</h5>
@@ -223,7 +391,12 @@ import { useState, useEffect } from 'react';
                         )}
                       </div>
                       <div>
-                        <button onClick={() => handleChapterClick('Geometry Basics')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Geometry Basics' ? 'bold' : 'normal' }}>2. Geometry Basics</button>
+                        <button
+                          onClick={() => handleChapterClick('Geometry Basics')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Geometry Basics' ? 'bold' : 'normal' }}
+                        >
+                          2. Geometry Basics
+                        </button>
                         {selectedChapter === 'Geometry Basics' && (
                           <div style={{ marginTop: 8 }}>
                             <h5>Subtopics</h5>
@@ -413,7 +586,6 @@ import { useState, useEffect } from 'react';
         </main>
       </div>
     );
-  }
 
   function SphereAnimation() {
     const [pos, setPos] = useState(0);
@@ -615,7 +787,6 @@ import { useState, useEffect } from 'react';
       );
     }
     return null;
-  }
-
+  }}
   export default App;
 
