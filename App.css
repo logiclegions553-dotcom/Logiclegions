@@ -1,44 +1,124 @@
-.palette-bg {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
-}
-
-.student-app {
+.right-sidebar {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  left: auto !important;
+  width: 70px;
+  height: 100vh;
+  background: linear-gradient(135deg, #16213e 60%, #1a1a2e 100%);
+  color: #fff;
+  padding: 40px 0 20px 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.08);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 24px;
+  z-index: 1000;
+  overflow: hidden;
 }
-
-.robot-area {
+.search-section {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.sidebar .material-icons {
+  font-size: 2.2em;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  color: #e94560;
+  transition: color 0.2s;
+}
+.sidebar li:hover .material-icons {
+  color: #fff;
+}
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background-color, #f8f4f4);
+  margin-left: 240px;
+}
+.main-content {
+  width: 2000px;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 60%, #16213e 100%);
+  color: #fff;
+  padding: 40px 0 20px 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.08);
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  z-index: 1000;
+  overflow: hidden;
+}
+.sidebar h2 {
+  display: none;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar li {
+  padding: 18px 0;
+  font-size: 1.15em;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  height: 200px;
-  width: 180px;
 }
-
-.robot-svg {
-  width: 120px;
-  height: 180px;
-  animation: robot-wave 2s infinite alternate;
-}
-
-@keyframes robot-wave {
-  0% { transform: rotate(-5deg); }
-  100% { transform: rotate(5deg); }
+.sidebar li:hover {
+  background: #e94560;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(233,69,96,0.12);
 }
 
 
-.mainContent {
+
+.Searchresults {
   background: #fff;
   color: #000;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -111,12 +191,61 @@
   color: #000;
 }
 
-@media (max-width: 600px) {
-  .student-app {
-    max-width: 95vw;
-    padding: 1rem;
+/* Improved Responsive Layout */
+@media (max-width: 1200px) {
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
   }
-  .form-container {
-    gap: 1rem;
+  .searchSection, .subjectsSection {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+}
+
+@media (max-width: 900px) {
+  .app-layout {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .sidebar, .right-sidebar {
+    position: static;
+    width: 100%;
+    height: 56px;
+    flex-direction: row;
+    border-radius: 0;
+    padding: 8px 0;
+  }
+  .main-content {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    width: 100%;
+    padding: 4px;
+  }
+  .searchSection, .subjectsSection {
+    width: 100%;
+    min-width: 0;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0;
+    padding: 4px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .sidebar, .right-sidebar {
+    height: 44px;
+    padding: 4px 0;
   }
 }
