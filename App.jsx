@@ -16,14 +16,14 @@ import { useState, useEffect } from 'react';
     const [subtopics, setSubtopics] = useState({
       Science: {
         'Introduction to Physics': ['Motion', 'Force', 'Energy'],
-        Biology: {
-          'Human Heart': ['Structure', 'Function', 'Diseases'],
-          'Respiratory System': ['Organs', 'Process', 'Diseases']
-        }
       },
       Maths: {
         'Algebra Fundamentals': ['Equations', 'Expressions', 'Functions'],
         'Geometry Basics': ['Shapes', 'Angles', 'Theorems']
+      },
+      Biology: {
+        'Human Heart': ['Structure', 'Function', 'Diseases'],
+        'Respiratory System': ['Organs', 'Process', 'Diseases']
       }
     });
     const topicContents = {
@@ -85,102 +85,8 @@ import { useState, useEffect } from 'react';
             ]
           }
         },
-        Biology: {
-          'Human Heart': {
-            Structure: {
-              title: 'Structure of the Heart',
-              points: [
-                'What is the Heart?',
-                'The heart is a muscular organ that pumps blood throughout the body via the circulatory system. It supplies oxygen and nutrients and removes carbon dioxide and waste products.',
-                'Location and Size',
-                'Located in the thoracic cavity, between the lungs (slightly to the left of the midline).',
-                'About the size of a fist and weighs around 250–350 grams.',
-                'Main Characteristics',
-                'Type of muscle: Cardiac muscle (involuntary and striated).',
-                'Protective covering: Pericardium (a double-walled sac filled with pericardial fluid).',
-                'The heart is a muscular organ about the size of your fist, located just behind and slightly left of the breastbone.',
-                'It consists of four chambers: two atria (upper chambers) and two ventricles (lower chambers).',
-                'The chambers are separated by valves that prevent the backflow of blood.'
-              ],
-              terms: [
-                { name: 'Aorta', desc: 'The largest artery in the body, carrying blood away from the heart to the rest of the body.' },
-                { name: 'Atrium', desc: 'One of the two upper chambers of the heart that receive blood.' },
-                { name: 'Ventricle', desc: 'One of the two lower chambers of the heart that pump blood out of the heart.' },
-                { name: 'Valve', desc: 'A structure that opens and closes to control the flow of blood.' }
-              ]
-            },
-            Function: {
-              title: 'Function of the Heart',
-              points: [
-                'The heart pumps blood through the circulatory system, supplying oxygen and nutrients to the tissues and removing carbon dioxide and wastes.',
-                'The right side of the heart receives deoxygenated blood from the body and pumps it to the lungs for oxygenation.',
-                'The left side of the heart receives oxygenated blood from the lungs and pumps it to the rest of the body.'
-              ],
-              terms: [
-                { name: 'Circulation', desc: 'The movement of blood through the heart and blood vessels.' },
-                { name: 'Oxygenation', desc: 'The process of adding oxygen to the blood.' },
-                { name: 'Deoxygenated', desc: 'Blood that is low in oxygen and high in carbon dioxide.' },
-                { name: 'Oxygenated', desc: 'Blood that is rich in oxygen and low in carbon dioxide.' }
-              ]
-            },
-            Diseases: {
-              title: 'Diseases of the Heart',
-              points: [
-                'Common heart diseases include coronary artery disease, heart attack, and heart failure.',
-                'Risk factors for heart disease include high blood pressure, high cholesterol, smoking, and diabetes.',
-                'Maintaining a healthy lifestyle can reduce the risk of heart disease.'
-              ],
-              terms: [
-                { name: 'Coronary Artery Disease', desc: 'A condition caused by the buildup of plaque in the coronary arteries, reducing blood flow to the heart muscle.' },
-                { name: 'Heart Attack', desc: 'A medical emergency where the blood flow to a part of the heart is blocked, causing damage to the heart muscle.' },
-                { name: 'Heart Failure', desc: 'A condition in which the heart cannot pump enough blood to meet the body\'s needs.' }
-              ]
-            }
-          },
-          'Respiratory System': {
-            Organs: {
-              title: 'Organs of the Respiratory System',
-              points: [
-                'The respiratory system includes the nose, throat, larynx, trachea, bronchi, and lungs.',
-                'Air enters the body through the nose or mouth and travels down the trachea, which divides into two bronchi, one for each lung.',
-                'The lungs are the main organs of respiration, where gas exchange occurs.'
-              ],
-              terms: [
-                { name: 'Nose', desc: 'The external part of the respiratory system that filters, warms, and moistens air.' },
-                { name: 'Trachea', desc: 'The windpipe; a tube that connects the larynx to the bronchi.' },
-                { name: 'Bronchi', desc: 'The two main branches of the trachea that lead to the lungs.' },
-                { name: 'Lungs', desc: 'The pair of organs in the chest that are responsible for breathing.' }
-              ]
-            },
-            Process: {
-              title: 'Process of Respiration',
-              points: [
-                'Respiration is the process of exchanging oxygen and carbon dioxide between the body and the environment.',
-                'Inhalation brings oxygen-rich air into the lungs, and exhalation removes carbon dioxide-rich air.',
-                'The diaphragm and intercostal muscles play a key role in breathing by contracting and relaxing to change the volume of the thoracic cavity.'
-              ],
-              terms: [
-                { name: 'Inhalation', desc: 'The act of taking air into the lungs.' },
-                { name: 'Exhalation', desc: 'The act of expelling air from the lungs.' },
-                { name: 'Diaphragm', desc: 'The muscle that separates the chest cavity from the abdominal cavity and is involved in breathing.' },
-                { name: 'Intercostal Muscles', desc: 'The muscles between the ribs that assist in breathing.' }
-              ]
-            },
-            Diseases: {
-              title: 'Diseases of the Respiratory System',
-              points: [
-                'Common respiratory diseases include asthma, chronic obstructive pulmonary disease (COPD), and pneumonia.',
-                'Risk factors for respiratory diseases include smoking, air pollution, and respiratory infections.',
-                'Preventive measures include avoiding smoking, reducing exposure to pollutants, and getting vaccinated against respiratory infections.'
-              ],
-              terms: [
-                { name: 'Asthma', desc: 'A chronic disease that causes inflammation and narrowing of the airways, leading to difficulty in breathing.' },
-                { name: 'COPD', desc: 'A group of lung diseases that block airflow and make it difficult to breathe.' },
-                { name: 'Pneumonia', desc: 'An infection that inflames the air sacs in one or both lungs, which may fill with fluid.' }
-              ]
-            }
-          }
-        },
+
+      },
       Maths: {
         'Algebra Fundamentals': {
           Equations: 'Equations are mathematical statements that assert the equality of two expressions.',
@@ -192,9 +98,111 @@ import { useState, useEffect } from 'react';
           Angles: 'Angles are formed by two rays meeting at a common endpoint.',
           Theorems: 'Theorems are statements that can be proven based on previously established statements.'
         }
+      },
+      Biology: {
+        'Human Heart': {
+          Structure: {
+            title: 'Structure of the Heart',
+            points: [
+              'What is the Heart?',
+              'The heart is a muscular organ that pumps blood throughout the body via the circulatory system. It supplies oxygen and nutrients and removes carbon dioxide and waste products.',
+              'Location and Size',
+              'Located in the thoracic cavity, between the lungs (slightly to the left of the midline).',
+              'About the size of a fist and weighs around 250–350 grams.',
+              'Main Characteristics',
+              'Type of muscle: Cardiac muscle (involuntary and striated).',
+              'Protective covering: Pericardium (a double-walled sac filled with pericardial fluid).',
+              'The heart is a muscular organ about the size of your fist, located just behind and slightly left of the breastbone.',
+              'It consists of four chambers: two atria (upper chambers) and two ventricles (lower chambers).',
+              'The chambers are separated by valves that prevent the backflow of blood.'
+            ],
+            types: [],
+            terms: [
+              { name: 'Aorta', desc: 'The largest artery in the body, carrying blood away from the heart to the rest of the body.' },
+              { name: 'Atrium', desc: 'One of the two upper chambers of the heart that receive blood.' },
+              { name: 'Ventricle', desc: 'One of the two lower chambers of the heart that pump blood out of the heart.' },
+              { name: 'Valve', desc: 'A structure that opens and closes to control the flow of blood.' }
+            ]
+          },
+          Function: {
+            title: 'Function of the Heart',
+            points: [
+              'The heart pumps blood through the circulatory system, supplying oxygen and nutrients to the tissues and removing carbon dioxide and wastes.',
+              'The right side of the heart receives deoxygenated blood from the body and pumps it to the lungs for oxygenation.',
+              'The left side of the heart receives oxygenated blood from the lungs and pumps it to the rest of the body.'
+            ],
+            types: [],
+            terms: [
+              { name: 'Circulation', desc: 'The movement of blood through the heart and blood vessels.' },
+              { name: 'Oxygenation', desc: 'The process of adding oxygen to the blood.' },
+              { name: 'Deoxygenated', desc: 'Blood that is low in oxygen and high in carbon dioxide.' },
+              { name: 'Oxygenated', desc: 'Blood that is rich in oxygen and low in carbon dioxide.' }
+            ]
+          },
+          Diseases: {
+            title: 'Diseases of the Heart',
+            points: [
+              'Common heart diseases include coronary artery disease, heart attack, and heart failure.',
+              'Risk factors for heart disease include high blood pressure, high cholesterol, smoking, and diabetes.',
+              'Maintaining a healthy lifestyle can reduce the risk of heart disease.'
+            ],
+            types: [],
+            terms: [
+              { name: 'Coronary Artery Disease', desc: 'A condition caused by the buildup of plaque in the coronary arteries, reducing blood flow to the heart muscle.' },
+              { name: 'Heart Attack', desc: 'A medical emergency where the blood flow to a part of the heart is blocked, causing damage to the heart muscle.' },
+              { name: 'Heart Failure', desc: 'A condition in which the heart cannot pump enough blood to meet the body\'s needs.' }
+            ]
+          }
+        },
+        'Respiratory System': {
+          Organs: {
+            title: 'Organs of the Respiratory System',
+            points: [
+              'The respiratory system includes the nose, throat, larynx, trachea, bronchi, and lungs.',
+              'Air enters the body through the nose or mouth and travels down the trachea, which divides into two bronchi, one for each lung.',
+              'The lungs are the main organs of respiration, where gas exchange occurs.'
+            ],
+            types: [],
+            terms: [
+              { name: 'Nose', desc: 'The external part of the respiratory system that filters, warms, and moistens air.' },
+              { name: 'Trachea', desc: 'The windpipe; a tube that connects the larynx to the bronchi.' },
+              { name: 'Bronchi', desc: 'The two main branches of the trachea that lead to the lungs.' },
+              { name: 'Lungs', desc: 'The pair of organs in the chest that are responsible for breathing.' }
+            ]
+          },
+          Process: {
+            title: 'Process of Respiration',
+            points: [
+              'Respiration is the process of exchanging oxygen and carbon dioxide between the body and the environment.',
+              'Inhalation brings oxygen-rich air into the lungs, and exhalation removes carbon dioxide-rich air.',
+              'The diaphragm and intercostal muscles play a key role in breathing by contracting and relaxing to change the volume of the thoracic cavity.'
+            ],
+            types: [],
+            terms: [
+              { name: 'Inhalation', desc: 'The act of taking air into the lungs.' },
+              { name: 'Exhalation', desc: 'The act of expelling air from the lungs.' },
+              { name: 'Diaphragm', desc: 'The muscle that separates the chest cavity from the abdominal cavity and is involved in breathing.' },
+              { name: 'Intercostal Muscles', desc: 'The muscles between the ribs that assist in breathing.' }
+            ]
+          },
+          Diseases: {
+            title: 'Diseases of the Respiratory System',
+            points: [
+              'Common respiratory diseases include asthma, chronic obstructive pulmonary disease (COPD), and pneumonia.',
+              'Risk factors for respiratory diseases include smoking, air pollution, and respiratory infections.',
+              'Preventive measures include avoiding smoking, reducing exposure to pollutants, and getting vaccinated against respiratory infections.'
+            ],
+            types: [],
+            terms: [
+              { name: 'Asthma', desc: 'A chronic disease that causes inflammation and narrowing of the airways, leading to difficulty in breathing.' },
+              { name: 'COPD', desc: 'A group of lung diseases that block airflow and make it difficult to breathe.' },
+              { name: 'Pneumonia', desc: 'An infection that inflames the air sacs in one or both lungs, which may fill with fluid.' }
+            ]
+          }
+        }
       }
     }
-  }
+  
 
     function handleSearch(e) {
       e.preventDefault();
@@ -265,8 +273,9 @@ import { useState, useEffect } from 'react';
                 <div className="subjectsList" style={{ width: '100%', marginBottom: 16, display: selectedSubject ? 'none' : 'block' }}>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '100%' }}>
                     <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Science')}>Science</li>
-                    <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Biology')}>Biology</li>
+                    {/* <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Biology')}>Biology</li> */}
                     <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Maths')}>Maths</li>
+                    <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Biology')}>Biology</li>
                   </ul>
                 </div>
                 {selectedSubject === 'Science' && (
@@ -311,64 +320,6 @@ import { useState, useEffect } from 'react';
                     </div>
                   </div>
                 )}
-                {selectedSubject === 'Biology' && (
-                  <div style={{ marginTop: 24, marginLeft: 60, right: 50 }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                      <div>
-                        <button
-                          onClick={() => handleChapterClick('Human Heart')}
-                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Human Heart' ? 'bold' : 'normal' }}
-                        >
-                          1. Human Heart
-                        </button>
-                        {selectedChapter === 'Human Heart' && (
-                          <div style={{ marginTop: 8 }}>
-                            <h5>Subtopics</h5>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                              {subtopics['Science']['Biology']['Human Heart'].map((topic, idx) => (
-                                <button
-                                  key={topic}
-                                  onClick={() => {
-                                    setSelectedSubject('Biology');
-                                    setSelectedChapter('Human Heart');
-                                    setSelectedTopic(topic);
-                                  }}
-                                  style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}
-                                >{`${idx + 1}. ${topic}`}</button>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                      <div>
-                        <button
-                          onClick={() => handleChapterClick('Respiratory System')}
-                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Respiratory System' ? 'bold' : 'normal' }}
-                        >
-                          2. Respiratory System
-                        </button>
-                        {selectedChapter === 'Respiratory System' && (
-                          <div style={{ marginTop: 8 }}>
-                            <h5>Subtopics</h5>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                              {subtopics['Science']['Biology']['Respiratory System'].map((topic, idx) => (
-                                <button
-                                  key={topic}
-                                  onClick={() => {
-                                    setSelectedSubject('Biology');
-                                    setSelectedChapter('Respiratory System');
-                                    setSelectedTopic(topic);
-                                  }}
-                                  style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}
-                                >{`${idx + 1}. ${topic}`}</button>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
                 {selectedSubject === 'Maths' && (  
                   <div style={{ marginTop: 24 }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -402,6 +353,48 @@ import { useState, useEffect } from 'react';
                             <h5>Subtopics</h5>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                               {subtopics['Maths']['Geometry Basics'].map((topic, idx) => (
+                                <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {selectedSubject === 'Biology' && (  
+                  <div style={{ marginTop: 24 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                      <div>
+                        <button
+                          onClick={() => handleChapterClick('Human Heart')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Human Heart' ? 'bold' : 'normal' }}
+                        >
+                          1. Human Heart
+                        </button>
+                        {selectedChapter === 'Human Heart' && (
+                          <div style={{ marginTop: 8 }}>
+                            <h5>Subtopics</h5>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                              {subtopics['Biology']['Human Heart'].map((topic, idx) => (
+                                <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <button
+                          onClick={() => handleChapterClick('Respiratory System')}
+                          style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Respiratory System' ? 'bold' : 'normal' }}
+                        >
+                          2. Respiratory System
+                        </button>
+                        {selectedChapter === 'Respiratory System' && (
+                          <div style={{ marginTop: 8 }}>
+                            <h5>Subtopics</h5>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                              {subtopics['Biology']['Respiratory System'].map((topic, idx) => (
                                 <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
                               ))}
                             </div>
@@ -492,97 +485,134 @@ import { useState, useEffect } from 'react';
             </div>
           )}
           {selectedTopic && selectedChapter && selectedSubject && (
-            <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px rgba(0,0,0,0.12)', padding: 32, minWidth: 320, maxWidth: 500, zIndex: 2000, textAlign: 'center' }}>
-              <h2 style={{ color: '#e94560', marginBottom: 16 }}>{typeof topicContents[selectedSubject][selectedChapter][selectedTopic] === 'object' ? topicContents[selectedSubject][selectedChapter][selectedTopic].title : selectedTopic}</h2>
-              <div style={{ maxHeight: 320, overflowY: 'auto', marginBottom: 20, textAlign: 'left', paddingRight: 8 }}>
-                {typeof topicContents[selectedSubject][selectedChapter][selectedTopic] === 'object' ? (
-                  <>
-                    <ul style={{ marginBottom: 12 }}>
-                      {topicContents[selectedSubject][selectedChapter][selectedTopic].points.map((pt, i) => (
-                        <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
-                      ))}
-                    </ul>
-                    <h4>Types of Motion</h4>
-                    <ul style={{ marginBottom: 12 }}>
-                      {topicContents[selectedSubject][selectedChapter][selectedTopic].types.map((type, i) => (
-                        <li key={i} style={{ marginBottom: 6 }}>
-                          <strong>{type.name}:</strong> {type.desc} <br />
-                          <em>Example:</em> {type.example}
-                          {type.diagram === 'SphereAnimation' && (
-                            <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                              <SphereAnimation />
-                            </div>
-                          )}
-                          {type.diagram === 'RotationalAnimation' && (
-                            <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                              <RotationalAnimation />
-                            </div>
-                          )}
-                          {type.diagram === 'OscillatoryAnimation' && (
-                            <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                              <OscillatoryAnimation />
-                            </div>
-                          )}
-                          {type.diagram === 'RandomAnimation' && (
-                            <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                              <RandomAnimation />
-                            </div>
-                          )}
-                          {type.diagram === 'ForceAnimation' && (
-                            <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                              <ForceAnimation type={type.name} />
-                            </div>
-                          )}
-                          {type.diagram === 'EnergyAnimation' && (
-                            <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                              <EnergyAnimation type={type.name} />
-                            </div>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                    <h4>Important Terms</h4>
-                    <ul>
-                      {topicContents[selectedSubject][selectedChapter][selectedTopic].terms.map((term, i) => (
-                        <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <p style={{ fontSize: 18 }}>{topicContents[selectedSubject][selectedChapter][selectedTopic]}</p>
-                )}
-                {uploadedImage && (
-                  <div style={{ marginBottom: 18 }}>
-                    <img src={uploadedImage} alt="Topic" style={{ maxWidth: '100%', maxHeight: 180, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }} />
-                  </div>
-                )}
-              </div>
-              <div style={{ margin: '18px 0' }}>
-                <label htmlFor="topicImage" style={{ fontWeight: 500, marginRight: 10 }}>Upload an image for this topic:</label>
-                <input id="topicImage" type="file" accept="image/*" onChange={e => {
-                  const file = e.target.files[0];
-                  if (file) {
-                    const reader = new FileReader();
-                    reader.onload = ev => setUploadedImage(ev.target.result);
-                    reader.readAsDataURL(file);
-                  }
-                }} />
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 32 }}>
-                <button onClick={() => setSelectedTopic(null)} style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Close</button>
-                <button style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Solve Quiz</button>
-                <button onClick={() => {
-                  const topics = Object.keys(topicContents[selectedSubject][selectedChapter]);
-                  const idx = topics.indexOf(selectedTopic);
-                  if (idx < topics.length - 1) {
-                    setSelectedTopic(topics[idx + 1]);
-                  } else {
-                    setSelectedTopic(null);
-                  }
-                }} style={{ padding: '10px 24px', fontSize: 16, background: '#1caad9', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Next</button>
-              </div>
+  <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px rgba(0,0,0,0.12)', padding: 32, minWidth: 320, maxWidth: 600, maxHeight: 500, zIndex: 2000, textAlign: 'center', overflowY: 'auto' }}>
+    {selectedSubject === 'Biology' && selectedChapter === 'Human Heart' && selectedTopic === 'Structure' ? (
+      <div style={{ display: 'flex', gap: 32, textAlign: 'left' }}>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ color: '#e94560', marginBottom: 16 }}>{topicContents['Biology']['Human Heart']['Structure'].title}</h2>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Biology']['Human Heart']['Structure'].points.map((pt, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
+            ))}
+          </ul>
+          <h4>Important Terms</h4>
+          <ul>
+            {topicContents['Biology']['Human Heart']['Structure'].terms.map((term, i) => (
+              <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
+            ))}
+          </ul>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div className="sketchfab-embed-wrapper">
+            <iframe title="[Animation] Human Heart" frameBorder="0" allowFullScreen mozAllowFullScreen="true" webkitAllowFullScreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/775d6629622740de8a5ed61a959c7506/embed" style={{ width: '100%', height: '400px', border: 'none' }}></iframe>
+            <p style={{ fontSize: 13, fontWeight: 'normal', margin: 5, color: '#4A4A4A' }}>
+              <a href="https://sketchfab.com/3d-models/animation-human-heart-775d6629622740de8a5ed61a959c7506?utm_medium=embed&utm_campaign=share-popup&utm_content=775d6629622740de8a5ed61a959c7506" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                [Animation] Human Heart
+              </a> by{' '}
+              <a href="https://sketchfab.com/michel.paschalis?utm_medium=embed&utm_campaign=share-popup&utm_content=775d6629622740de8a5ed61a959c7506" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                Michel Paschalis
+              </a> on{' '}
+              <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=775d6629622740de8a5ed61a959c7506" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                Sketchfab
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <>
+        <h2 style={{ color: '#e94560', marginBottom: 16 }}>{typeof topicContents[selectedSubject][selectedChapter][selectedTopic] === 'object' ? topicContents[selectedSubject][selectedChapter][selectedTopic].title : selectedTopic}</h2>
+        <div style={{ maxHeight: 320, overflowY: 'auto', marginBottom: 20, textAlign: 'left', paddingRight: 8 }}>
+          {typeof topicContents[selectedSubject][selectedChapter][selectedTopic] === 'object' ? (
+            <>
+              <ul style={{ marginBottom: 12 }}>
+                {topicContents[selectedSubject][selectedChapter][selectedTopic].points.map((pt, i) => (
+                  <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
+                ))}
+              </ul>
+              <h4>Types of Motion</h4>
+              <ul style={{ marginBottom: 12 }}>
+                {topicContents[selectedSubject][selectedChapter][selectedTopic].types.map((type, i) => (
+                  <li key={i} style={{ marginBottom: 6 }}>
+                    <strong>{type.name}:</strong> {type.desc} <br />
+                    <em>Example:</em> {type.example}
+                    {type.diagram === 'SphereAnimation' && (
+                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                        <SphereAnimation />
+                      </div>
+                    )}
+                    {type.diagram === 'RotationalAnimation' && (
+                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                        <RotationalAnimation />
+                      </div>
+                    )}
+                    {type.diagram === 'OscillatoryAnimation' && (
+                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                        <OscillatoryAnimation />
+                      </div>
+                    )}
+                    {type.diagram === 'RandomAnimation' && (
+                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                        <RandomAnimation />
+                      </div>
+                    )}
+                    {type.diagram === 'ForceAnimation' && (
+                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                        <ForceAnimation type={type.name} />
+                      </div>
+                    )}
+                    {type.diagram === 'EnergyAnimation' && (
+                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                        <EnergyAnimation type={type.name} />
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <h4>Important Terms</h4>
+              <ul>
+                {topicContents[selectedSubject][selectedChapter][selectedTopic].terms.map((term, i) => (
+                  <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <p style={{ fontSize: 18 }}>{topicContents[selectedSubject][selectedChapter][selectedTopic]}</p>
+          )}
+          {uploadedImage && (
+            <div style={{ marginBottom: 18 }}>
+              <img src={uploadedImage} alt="Topic" style={{ maxWidth: '100%', maxHeight: 180, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }} />
             </div>
           )}
+        </div>
+      </>
+    )}
+    <div style={{ margin: '18px 0' }}>
+      <label htmlFor="topicImage" style={{ fontWeight: 500, marginRight: 10 }}>Upload an image for this topic:</label>
+      <input id="topicImage" type="file" accept="image/*" onChange={e => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = ev => setUploadedImage(ev.target.result);
+          reader.readAsDataURL(file);
+        }
+      }} />
+    </div>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 32 }}>
+      <button onClick={() => setSelectedTopic(null)} style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Close</button>
+      <button style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Solve Quiz</button>
+      <button onClick={() => {
+        const topics = Object.keys(topicContents[selectedSubject][selectedChapter]);
+        const idx = topics.indexOf(selectedTopic);
+        if (idx < topics.length - 1) {
+          setSelectedTopic(topics[idx + 1]);
+        } else {
+          setSelectedTopic(null);
+        }
+      }} style={{ padding: '10px 24px', fontSize: 16, background: '#1caad9', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Next</button>
+    </div>
+  </div>
+)}
         </main>
       </div>
     );
