@@ -10,6 +10,44 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [studentProfile, setStudentProfile] = useState({ name: 'John Doe', lessonsCompleted: 12, quizzesScore: 85 });
   const [selectedSubject, setSelectedSubject] = useState(null);
+  const [selectedChapter, setSelectedChapter] = useState(null);
+  const [selectedTopic, setSelectedTopic] = useState(null);
+  const subtopics = {
+    Science: {
+      'Introduction to Physics': ['Motion', 'Force', 'Energy'],
+      'Basics of Chemistry': ['Atoms', 'Molecules', 'Reactions']
+    },
+    Maths: {
+      'Algebra Fundamentals': ['Equations', 'Expressions', 'Functions'],
+      'Geometry Basics': ['Shapes', 'Angles', 'Theorems']
+    }
+  };
+  const topicContents = {
+    Science: {
+      'Introduction to Physics': {
+        Motion: 'Motion is the change in position of an object over time.',
+        Force: 'Force is a push or pull upon an object resulting from its interaction with another object.',
+        Energy: 'Energy is the ability to do work.'
+      },
+      'Basics of Chemistry': {
+        Atoms: 'Atoms are the basic units of matter.',
+        Molecules: 'Molecules are groups of atoms bonded together.',
+        Reactions: 'Chemical reactions involve the transformation of substances.'
+      }
+    },
+    Maths: {
+      'Algebra Fundamentals': {
+        Equations: 'Equations are mathematical statements that assert the equality of two expressions.',
+        Expressions: 'Expressions are combinations of numbers, variables, and operators.',
+        Functions: 'Functions relate inputs to outputs.'
+      },
+      'Geometry Basics': {
+        Shapes: 'Shapes are the forms of objects having boundaries.',
+        Angles: 'Angles are formed by two rays meeting at a common endpoint.',
+        Theorems: 'Theorems are statements that can be proven based on previously established statements.'
+      }
+    }
+  };
 
   function handleSearch(e) {
     e.preventDefault();
@@ -17,6 +55,14 @@ function App() {
     setShowHeartDiagram(term === 'heart diagram' || term === 'heart');
     setShowRespiratoryDiagram(term === 'respiratory system');
   }
+
+  const handleSubtopicClick = () => {
+    setSelectedChapter(null);
+  };
+
+  const handleChapterClick = (chapter) => {
+    setSelectedChapter(selectedChapter === chapter ? null : chapter);
+  };
 
   return (
     <div className="appLayout">
@@ -64,10 +110,6 @@ function App() {
         )}
         {activeSection === 'class' && (
           <div style={{ width: '1600px', height: '700px', display: 'flex', flexDirection: 'row', position: 'relative', justifyContent: 'center', alignItems: 'center', margin: '0 auto' }}>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <h1>Class Section</h1>
-              <p>This is the class section. Add your class-related content here.</p>
-            </div>
             <div className="subjectsSection" style={{ width: 300, minWidth: 220, height: '100%', background: '#fff', borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.08)', margin: '40px 0 40px 0px', padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', position: 'absolute', left: 100, top: 0 }}>
               <button onClick={() => setSelectedSubject(null)} style={{ marginBottom: 24, padding: '8px 16px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
                 ← Back
@@ -81,18 +123,66 @@ function App() {
               </div>
               {selectedSubject === 'Science' && (
                 <div style={{ marginTop: 24 , marginLeft: 60, right: 50 }}>
-                  <ul style={{ listStyle: 'decimal', paddingLeft: 20, marginTop: 10 }}>
-                    <li>1. Introduction to Physics</li>
-                    <li>2. Basics of Chemistry</li>
-                  </ul>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <div>
+                      <button onClick={() => handleChapterClick('Introduction to Physics')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Introduction to Physics' ? 'bold' : 'normal' }}>1. Introduction to Physics</button>
+                      {selectedChapter === 'Introduction to Physics' && (
+                        <div style={{ marginTop: 8 }}>
+                          <h5>Subtopics</h5>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {subtopics['Science']['Introduction to Physics'].map((topic, idx) => (
+                              <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <button onClick={() => handleChapterClick('Basics of Chemistry')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Basics of Chemistry' ? 'bold' : 'normal' }}>2. Basics of Chemistry</button>
+                      {selectedChapter === 'Basics of Chemistry' && (
+                        <div style={{ marginTop: 8 }}>
+                          <h5>Subtopics</h5>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {subtopics['Science']['Basics of Chemistry'].map((topic, idx) => (
+                              <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
               {selectedSubject === 'Maths' && (  
                 <div style={{ marginTop: 24 }}>
-                  <ul style={{ listStyle: 'decimal', paddingLeft: 20, marginTop: 10 }}>
-                    <li>1. Algebra Fundamentals</li>
-                    <li>2. Geometry Basics</li>
-                  </ul>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <div>
+                      <button onClick={() => handleChapterClick('Algebra Fundamentals')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Algebra Fundamentals' ? 'bold' : 'normal' }}>1. Algebra Fundamentals</button>
+                      {selectedChapter === 'Algebra Fundamentals' && (
+                        <div style={{ marginTop: 8 }}>
+                          <h5>Subtopics</h5>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {subtopics['Maths']['Algebra Fundamentals'].map((topic, idx) => (
+                              <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <button onClick={() => handleChapterClick('Geometry Basics')} style={{ padding: '10px 18px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, marginBottom: 8, cursor: 'pointer', fontWeight: selectedChapter === 'Geometry Basics' ? 'bold' : 'normal' }}>2. Geometry Basics</button>
+                      {selectedChapter === 'Geometry Basics' && (
+                        <div style={{ marginTop: 8 }}>
+                          <h5>Subtopics</h5>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {subtopics['Maths']['Geometry Basics'].map((topic, idx) => (
+                              <button key={topic} onClick={() => setSelectedTopic(topic)} style={{ padding: '8px 16px', fontSize: 15, background: '#fff', color: '#e94560', border: '1px solid #e94560', borderRadius: 8, cursor: 'pointer', textAlign: 'left' }}>{`${idx + 1}. ${topic}`}</button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -173,6 +263,25 @@ function App() {
                 </div>
               )}
             </div>
+          </div>
+        )}
+        {selectedTopic && selectedChapter && selectedSubject && (
+          <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px rgba(0,0,0,0.12)', padding: 32, minWidth: 320, maxWidth: 500, zIndex: 2000, textAlign: 'center' }}>
+            <h2 style={{ color: '#e94560', marginBottom: 16 }}>{selectedTopic}</h2>
+            <p style={{ fontSize: 18 }}>{topicContents[selectedSubject][selectedChapter][selectedTopic]}</p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 32 }}>
+      <button style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Solve Quiz</button>
+      <button onClick={() => {
+        const topics = Object.keys(topicContents[selectedSubject][selectedChapter]);
+        const idx = topics.indexOf(selectedTopic);
+        if (idx < topics.length - 1) {
+          setSelectedTopic(topics[idx + 1]);
+        } else {
+          setSelectedTopic(null);
+        }
+      }} style={{ padding: '10px 24px', fontSize: 16, background: '#1caad9', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Next</button>
+    </div>
+            <button onClick={() => setSelectedTopic(null)} style={{ marginTop: 24, padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Close</button>
           </div>
         )}
       </main>
