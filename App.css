@@ -1,3 +1,33 @@
+.palette-bg {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
+}
+
+.student-app {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.robot-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 180px;
+}
+
+.robot-svg {
+  width: 120px;
+  height: 180px;
+  animation: robot-wave 2s infinite alternate;
+}
+
+@keyframes robot-wave {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
 
 
 .mainContent {
@@ -21,13 +51,13 @@
 }
 
 .student-app {
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
   padding: 2rem;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  text-align: center;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80,80,160,0.12);
+  text-align: left;
 }
 
 .student-app h1 {
