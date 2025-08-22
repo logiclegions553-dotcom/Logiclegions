@@ -270,6 +270,7 @@ function App() {
             <h2 style={{ color: '#e94560', marginBottom: 16 }}>{selectedTopic}</h2>
             <p style={{ fontSize: 18 }}>{topicContents[selectedSubject][selectedChapter][selectedTopic]}</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 32 }}>
+      <button onClick={() => setSelectedTopic(null)} style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Close</button>
       <button style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Solve Quiz</button>
       <button onClick={() => {
         const topics = Object.keys(topicContents[selectedSubject][selectedChapter]);
@@ -281,7 +282,6 @@ function App() {
         }
       }} style={{ padding: '10px 24px', fontSize: 16, background: '#1caad9', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Next</button>
     </div>
-            <button onClick={() => setSelectedTopic(null)} style={{ marginTop: 24, padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Close</button>
           </div>
         )}
       </main>
