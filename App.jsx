@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import './App.css';
 import SketchfabHeartViewer from './SketchfabHeartViewer.jsx';
@@ -10,6 +9,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [studentProfile, setStudentProfile] = useState({ name: 'John Doe', lessonsCompleted: 12, quizzesScore: 85 });
+  const [selectedSubject, setSelectedSubject] = useState(null);
 
   function handleSearch(e) {
     e.preventDefault();
@@ -36,9 +36,9 @@ function App() {
           <li title="Class Group Messages"><span className="material-icons">forum</span></li>
         </ul>
       </nav>
-      <main className="mainContent">
+  <main className="mainContent" style={{ position: 'relative' }}>
         {activeSection === 'profile' && (
-          <div className="searchSection">
+          <div className="searchSection" style={{ flex: 1 }}>
             {!isLoggedIn ? (
               <form
                 style={{ maxWidth: 400, width: '100%', margin: '40px auto', display: 'flex', flexDirection: 'column', gap: 16 }}
@@ -63,19 +63,49 @@ function App() {
           </div>
         )}
         {activeSection === 'class' && (
-          <div className="searchSection">
-            <h1>Class Section</h1>
-            <p>This is the class section. Add your class-related content here.</p>
+          <div style={{ width: '1600px', height: '700px', display: 'flex', flexDirection: 'row', position: 'relative', justifyContent: 'center', alignItems: 'center', margin: '0 auto' }}>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              <h1>Class Section</h1>
+              <p>This is the class section. Add your class-related content here.</p>
+            </div>
+            <div className="subjectsSection" style={{ width: 300, minWidth: 220, height: '100%', background: '#fff', borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.08)', margin: '40px 0 40px 0px', padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', position: 'absolute', left: 100, top: 0 }}>
+              <button onClick={() => setSelectedSubject(null)} style={{ marginBottom: 24, padding: '8px 16px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
+                ← Back
+              </button>
+              <h3>{selectedSubject ? 'Chapters' : 'Subjects'}</h3>
+              <div className="subjectsList" style={{ width: '100%', marginBottom: 16, display: selectedSubject ? 'none' : 'block' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '100%' }}>
+                  <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Science')}>Science</li>
+                  <li style={{ padding: '10px 0', fontSize: 17, borderBottom: '1px solid #eee', cursor: 'pointer' }} onClick={() => setSelectedSubject('Maths')}>Maths</li>
+                </ul>
+              </div>
+              {selectedSubject === 'Science' && (
+                <div style={{ marginTop: 24 , marginLeft: 60, right: 50 }}>
+                  <ul style={{ listStyle: 'decimal', paddingLeft: 20, marginTop: 10 }}>
+                    <li>1. Introduction to Physics</li>
+                    <li>2. Basics of Chemistry</li>
+                  </ul>
+                </div>
+              )}
+              {selectedSubject === 'Maths' && (  
+                <div style={{ marginTop: 24 }}>
+                  <ul style={{ listStyle: 'decimal', paddingLeft: 20, marginTop: 10 }}>
+                    <li>1. Algebra Fundamentals</li>
+                    <li>2. Geometry Basics</li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         )}
         {activeSection === 'quizzes' && (
-          <div className="searchSection">
+          <div>
             <h1>Quizzes Section</h1>
             <p>This is the quizzes section. Add your quizzes-related content here.</p>
           </div>
         )}
         {activeSection === 'notebooks' && (
-          <div className="searchSection">
+          <div>
             <h1>Notebooks Section</h1>
             <p>This is the notebooks section. Add your notebooks-related content here.</p>
           </div>
