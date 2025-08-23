@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
   import './App.css';
   import SketchfabHeartViewer from './SketchfabHeartViewer.jsx';
+  import LoginForm from './LoginForm.jsx';
+  import SignupForm from './SignupForm.jsx';
 
   function App() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -241,15 +243,7 @@ import { useState, useEffect } from 'react';
           {activeSection === 'profile' && (
             <div className="searchSection" style={{ flex: 1 }}>
               {!isLoggedIn ? (
-                <form
-                  style={{ maxWidth: 400, width: '100%', margin: '40px auto', display: 'flex', flexDirection: 'column', gap: 16 }}
-                  onSubmit={e => { e.preventDefault(); setIsLoggedIn(true); }}
-                >
-                  <h2>Login</h2>
-                  <input type="text" placeholder="Username" required style={{ padding: 10, fontSize: 16 }} />
-                  <input type="password" placeholder="Password" required style={{ padding: 10, fontSize: 16 }} />
-                  <button type="submit" style={{ padding: 12, fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8 }}>Login</button>
-                </form>
+                <LoginForm onLogin={username => { setIsLoggedIn(true); setStudentProfile({ ...studentProfile, name: username }); }} />
               ) : (
                 <div style={{ maxWidth: 600, width: '100%', margin: '40px auto', background: '#fff', borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.08)', padding: 32 }}>
                   <h2>Student Profile</h2>
