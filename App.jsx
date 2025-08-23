@@ -485,8 +485,8 @@ import { useState, useEffect } from 'react';
             </div>
           )}
           {selectedTopic && selectedChapter && selectedSubject && (
-  <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px rgba(0,0,0,0.12)', padding: 32, minWidth: 320, maxWidth: 600, maxHeight: 500, zIndex: 2000, textAlign: 'center', overflowY: 'auto' }}>
-    {selectedSubject === 'Biology' && selectedChapter === 'Human Heart' && selectedTopic === 'Structure' ? (
+  <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px rgba(0,0,0,0.12)', padding: 32, minWidth: 320, maxWidth: 600, height: 500, zIndex: 2000, textAlign: 'center', overflowY: 'auto' }}>
+    {selectedSubject === 'Biology' && selectedChapter === 'Human Heart' && selectedTopic === 'Structure' && (
       <div style={{ display: 'flex', gap: 32, textAlign: 'left' }}>
         <div style={{ flex: 1 }}>
           <h2 style={{ color: '#e94560', marginBottom: 16 }}>{topicContents['Biology']['Human Heart']['Structure'].title}</h2>
@@ -519,85 +519,175 @@ import { useState, useEffect } from 'react';
           </div>
         </div>
       </div>
-    ) : (
+    )}
+    {selectedSubject === 'Biology' && selectedChapter === 'Respiratory System' && selectedTopic === 'Organs' && (
+      <div style={{ display: 'flex', gap: 32, textAlign: 'left' }}>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ color: '#e94560', marginBottom: 16 }}>{topicContents['Biology']['Respiratory System']['Organs'].title}</h2>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Biology']['Respiratory System']['Organs'].points.map((pt, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
+            ))}
+          </ul>
+          <h4>Important Terms</h4>
+          <ul>
+            {topicContents['Biology']['Respiratory System']['Organs'].terms.map((term, i) => (
+              <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
+            ))}
+          </ul>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div className="sketchfab-embed-wrapper">
+            <iframe title="Human Respiratory system review" frameBorder="0" allowFullScreen mozAllowFullScreen="true" webkitAllowFullScreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/250911151757489da1cf5501b791f363/embed" style={{ width: '100%', height: '400px', border: 'none' }}></iframe>
+            <p style={{ fontSize: 13, fontWeight: 'normal', margin: 5, color: '#4A4A4A' }}>
+              <a href="https://sketchfab.com/3d-models/human-respiratory-system-review-250911151757489da1cf5501b791f363?utm_medium=embed&utm_campaign=share-popup&utm_content=250911151757489da1cf5501b791f363" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                Human Respiratory system review
+              </a> by{' '}
+              <a href="https://sketchfab.com/shinjou?utm_medium=embed&utm_campaign=share-popup&utm_content=250911151757489da1cf5501b791f363" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                Darmawan Pujisetyadi
+              </a> on{' '}
+              <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=250911151757489da1cf5501b791f363" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                Sketchfab
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
+    {selectedSubject === 'Science' && selectedChapter === 'Introduction to Physics' && selectedTopic === 'Motion' && (
       <>
-        <h2 style={{ color: '#e94560', marginBottom: 16 }}>{typeof topicContents[selectedSubject][selectedChapter][selectedTopic] === 'object' ? topicContents[selectedSubject][selectedChapter][selectedTopic].title : selectedTopic}</h2>
-        <div style={{ maxHeight: 320, overflowY: 'auto', marginBottom: 20, textAlign: 'left', paddingRight: 8 }}>
-          {typeof topicContents[selectedSubject][selectedChapter][selectedTopic] === 'object' ? (
-            <>
-              <ul style={{ marginBottom: 12 }}>
-                {topicContents[selectedSubject][selectedChapter][selectedTopic].points.map((pt, i) => (
-                  <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
-                ))}
-              </ul>
-              <h4>Types of Motion</h4>
-              <ul style={{ marginBottom: 12 }}>
-                {topicContents[selectedSubject][selectedChapter][selectedTopic].types.map((type, i) => (
-                  <li key={i} style={{ marginBottom: 6 }}>
-                    <strong>{type.name}:</strong> {type.desc} <br />
-                    <em>Example:</em> {type.example}
-                    {type.diagram === 'SphereAnimation' && (
-                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                        <SphereAnimation />
-                      </div>
-                    )}
-                    {type.diagram === 'RotationalAnimation' && (
-                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                        <RotationalAnimation />
-                      </div>
-                    )}
-                    {type.diagram === 'OscillatoryAnimation' && (
-                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                        <OscillatoryAnimation />
-                      </div>
-                    )}
-                    {type.diagram === 'RandomAnimation' && (
-                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                        <RandomAnimation />
-                      </div>
-                    )}
-                    {type.diagram === 'ForceAnimation' && (
-                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                        <ForceAnimation type={type.name} />
-                      </div>
-                    )}
-                    {type.diagram === 'EnergyAnimation' && (
-                      <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
-                        <EnergyAnimation type={type.name} />
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-              <h4>Important Terms</h4>
-              <ul>
-                {topicContents[selectedSubject][selectedChapter][selectedTopic].terms.map((term, i) => (
-                  <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <p style={{ fontSize: 18 }}>{topicContents[selectedSubject][selectedChapter][selectedTopic]}</p>
-          )}
-          {uploadedImage && (
-            <div style={{ marginBottom: 18 }}>
-              <img src={uploadedImage} alt="Topic" style={{ maxWidth: '100%', maxHeight: 180, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }} />
-            </div>
-          )}
+        <h2 style={{ color: '#e94560', marginBottom: 16 }}>{topicContents['Science']['Introduction to Physics']['Motion'].title}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, textAlign: 'left' }}>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Science']['Introduction to Physics']['Motion'].points.map((pt, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
+            ))}
+          </ul>
+          <h4>Types of Motion</h4>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Science']['Introduction to Physics']['Motion'].types.map((type, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>
+                <strong>{type.name}:</strong> {type.desc} <br />
+                <em>Example:</em> {type.example}
+                {type.diagram === 'SphereAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <SphereAnimation />
+                  </div>
+                )}
+                {type.diagram === 'RotationalAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <RotationalAnimation />
+                  </div>
+                )}
+                {type.diagram === 'OscillatoryAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <OscillatoryAnimation />
+                  </div>
+                )}
+                {type.diagram === 'RandomAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <RandomAnimation />
+                  </div>
+                )}
+                {type.diagram === 'ForceAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <ForceAnimation type={type.name} />
+                  </div>
+                )}
+                {type.diagram === 'EnergyAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <EnergyAnimation type={type.name} />
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          <h4>Important Terms</h4>
+          <ul>
+            {topicContents['Science']['Introduction to Physics']['Motion'].terms.map((term, i) => (
+              <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
+            ))}
+          </ul>
         </div>
       </>
     )}
-    <div style={{ margin: '18px 0' }}>
-      <label htmlFor="topicImage" style={{ fontWeight: 500, marginRight: 10 }}>Upload an image for this topic:</label>
-      <input id="topicImage" type="file" accept="image/*" onChange={e => {
-        const file = e.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = ev => setUploadedImage(ev.target.result);
-          reader.readAsDataURL(file);
-        }
-      }} />
-    </div>
+    {selectedSubject === 'Science' && selectedChapter === 'Introduction to Physics' && selectedTopic === 'Force' && (
+      <>
+        <h2 style={{ color: '#e94560', marginBottom: 16 }}>{topicContents['Science']['Introduction to Physics']['Force'].title}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, textAlign: 'left' }}>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Science']['Introduction to Physics']['Force'].points.map((pt, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
+            ))}
+          </ul>
+          <h4>Types of Forces</h4>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Science']['Introduction to Physics']['Force'].types.map((type, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>
+                <strong>{type.name}:</strong> {type.desc} <br />
+                <em>Example:</em> {type.example}
+                {type.diagram === 'ForceAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <ForceAnimation type={type.name} />
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          <h4>Important Terms</h4>
+          <ul>
+            {topicContents['Science']['Introduction to Physics']['Force'].terms.map((term, i) => (
+              <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )}
+    {selectedSubject === 'Science' && selectedChapter === 'Introduction to Physics' && selectedTopic === 'Energy' && (
+      <>
+        <h2 style={{ color: '#e94560', marginBottom: 16 }}>{topicContents['Science']['Introduction to Physics']['Energy'].title}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, textAlign: 'left' }}>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Science']['Introduction to Physics']['Energy'].points.map((pt, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>{pt}</li>
+            ))}
+          </ul>
+          <h4>Types of Energy</h4>
+          <ul style={{ marginBottom: 12 }}>
+            {topicContents['Science']['Introduction to Physics']['Energy'].types.map((type, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>
+                <strong>{type.name}:</strong> {type.desc} <br />
+                <em>Example:</em> {type.example}
+                {type.diagram === 'EnergyAnimation' && (
+                  <div style={{ margin: '16px 0', height: 60, position: 'relative', background: '#f6f6f6', borderRadius: 8, overflow: 'hidden' }}>
+                    <EnergyAnimation type={type.name} />
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          <h4>Important Terms</h4>
+          <ul>
+            {topicContents['Science']['Introduction to Physics']['Energy'].terms.map((term, i) => (
+              <li key={i} style={{ marginBottom: 6 }}><strong>{term.name}:</strong> {term.desc}</li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )}
+    {selectedTopic && (
+      <div style={{ margin: '18px 0' }}>
+        <label htmlFor="topicImage" style={{ fontWeight: 500, marginRight: 10 }}>Upload an image for this topic:</label>
+        <input id="topicImage" type="file" accept="image/*" onChange={e => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = ev => setUploadedImage(ev.target.result);
+            reader.readAsDataURL(file);
+          }
+        }} />
+      </div>
+    )}
     <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 32 }}>
       <button onClick={() => setSelectedTopic(null)} style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Close</button>
       <button style={{ padding: '10px 24px', fontSize: 16, background: '#e94560', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>Solve Quiz</button>
